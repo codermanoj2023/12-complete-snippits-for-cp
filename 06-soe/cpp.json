@@ -1,0 +1,26 @@
+{
+    "sieveoferatosthenes": {
+		"prefix": "sieve",
+		"body": [
+			"int Primes(int n){",
+			"    if(n<2)return 0;",
+			"    vector<bool>isprime(n+1,1);",
+			"    int ans=0;",
+			"    for(int i=2;i<=n;i++){",
+			"        if(isprime[i]){",
+			"            ans++;",
+			"            int j=i+i;",
+			"            while (j<=n)",
+			"            {",
+			"                isprime[j]=0;",
+			"                j+=i;",
+			"            }",
+			"        }",
+			"    }",
+			"    return ans;",
+			"}",
+			""
+		],
+		"description": "sieveoferatosthenes"
+	}
+}
