@@ -1,12 +1,28 @@
-{
-    "used to convert string into int hash": {
-		"prefix": "get_hash",
-		"body": [
-			"int get_hash(vi &pref, vi &base_pow, int l ,int r){",
-			"    int h = pref[r + 1] - (base_pow[r - l + 1] * pref[l] % MOD) % MOD;",
-			"    return h < 0 ? h + MOD : h;",
-			"}"
-		],
-		"description": "used to convert string into int hash"
-	}
+"used to convert string into int hash": {
+  "prefix": "get_hash",
+  "body": [
+    "vi pref;",
+    "vi base_pow;",
+    "",
+    "void init(string &s)",
+    "{",
+    "    int n = s.size();",
+    "    pref[0] = s[0] - 'a' + 1;",
+    "    base_pow[0] = 1;",
+    "",
+    "    for (int i = 1; i < n; i++)",
+    "    {",
+    "        base_pow[i] = modmul(base_pow[i - 1], BASE);",
+    "        pref[i] = modadd(modmul(pref[i - 1], BASE), s[i] - 'a' + 1);",
+    "    }",
+    "}",
+    "int get_hash(int l, int r)",
+    "{",
+    "    if (l <= 0)",
+    "        return pref[r];",
+    "    int h = modsub(pref[r], modmul(base_pow[r - l + 1], pref[l - 1]));",
+    "    return h;",
+    "}"
+  ],
+  "description": "used to convert string into int hash"
 }
