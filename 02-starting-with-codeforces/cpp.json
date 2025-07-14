@@ -32,7 +32,7 @@
 			"int modmul(int a, int b, int mod = MOD){int ans = ((a % mod) * (b % mod)) % mod;        return ans;}",
 			"// ================================== take ip/op like vector,pairs directly!==================================",
 			"void solve(){",
-			"    ",
+			"    $0",
 			"    return;",
 			"}",
 			"int32_t main()",
